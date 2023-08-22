@@ -34,9 +34,20 @@ h1{
     text-align: center;
 }
 #todo-input{
-    padding: 15px;
+    padding: 10px;
     width: 80%;
     margin-right: 10px;
+}
+#todo-list{
+    list-style-type: none;
+    padding: 0%;
+    margin: 20 auto 20 auto;
+}
+#todo-list li{
+    background-color: #f2f2f2;
+    padding: 10px;
+    cursor: pointer;
+    text-align: left;
 }
 
 
