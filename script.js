@@ -5,7 +5,7 @@ HTML file and storing them in javascript elements.  This will allow us to use th
 without having to constantly call the method.*/
 var form = document.getElementById('todo-form');        //Allows user to interact with the form
 var input = document.getElementById('todo-input');      //Allows user to store list items ny using the button
-var list = document.getElementById('todo-list');        //Allows user to see the updated todo-list
+var list = document.getElementById('task-list');        //Allows user to see the updated todo-list
 
 /*Here we are calling the addEventListener on our window.  When our webpage loads
 entirely the call back function will load our statement into our window and let us
@@ -25,6 +25,19 @@ window.addEventListener('load', function() {
     addTaskToList(task);        //The variable is assigned to the list
     localStorage.setItem(task, task);       //The item is assigned a key, value pair
    });
+
+   /*This is the function that will be responsible for creating a new list item for each task
+   and appending it to the existing task list on our webpage. */
+   function addTaskToList(task){    //Defined the function with the parameter task
+    var listItem = document.createElement('li');    //Creating a new list item of type 'li" and assigning it to a variable for reference
+    listItem.textContent = task;    //textContent gets the content of all elements, including <script> and <style> elements.
+
+    listItem.addEventListener('click', function(){   //Another eventListner to trigger an event on 'click'
+        listItem.remove();      //When event 'click' occurs the task will be removed from both the list
+        localStorage.removeItem(task);      //and removed from the local storage
+    });
+    list.appendChild(listItem);     //Appends listItem to the list (the parent uI element) This will make the new list item element appear on the webpage under the task list.
+   }
    
   
   
