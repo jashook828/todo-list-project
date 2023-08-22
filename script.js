@@ -12,5 +12,10 @@ entirely the call back function will load our statement into our window and let 
 know that the event is completed.*/
 window.addEventListener('load', function() {
     console.log('Page has loaded!');
+    for (var i = 0; i < localStorage.length; i++) {  //Here we are looping through the length of our localstorage
+        addTaskToList(localStorage.key(i));         //We retrieve the key (task description) and add it to the list to be displayed on the webpage
+      }
   });
   
+  
+ 
