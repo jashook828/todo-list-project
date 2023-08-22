@@ -16,6 +16,16 @@ window.addEventListener('load', function() {
         addTaskToList(localStorage.key(i));         //We retrieve the key (task description) and add it to the list to be displayed on the webpage
       }
   });
+  form.addEventListener('submit', function(event) { //This piece of code waits on the user to press the submit button or press enter when they are within the todo list
+    event.preventDefault();     //preventDefault() stops the page from reloading when the next submit event occurs.
+   
+    var task = input.value;     //Creates a variable task that awaits user input
+    input.value = '';           //User input is assigned to the variable
+   
+    addTaskToList(task);        //The variable is assigned to the list
+    localStorage.setItem(task, task);       //The item is assigned a key, value pair
+   });
+   
   
   
  
